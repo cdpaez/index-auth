@@ -1,7 +1,11 @@
+import '../components/Login.css'
+
 import { useState } from "react";
 import { auth } from "../db/firebaseConfig";
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
-import '../components/Login.css'
+import NoteApp from '../components/NoteApp'
+
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -13,7 +17,7 @@ const Login = () => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       setUser(userCredential.user);
-      alert("Inicio de sesión exitoso");
+     console.log("Sesión iniciada");
     } catch (error) {
       alert("Error: " + error.message);
     }
@@ -22,15 +26,15 @@ const Login = () => {
   const handleLogout = async () => {
     await signOut(auth);
     setUser(null);
-    alert("Sesión cerrada");
+    console.log('sesion cerrada')
   };
 
   return (
     <div className="login-container">
       {user ? (
-        <div>
-          <h2>Bienvenido, {user.email}</h2>
-          <button onClick={handleLogout}>Cerrar Sesión</button>
+        <div className='user-container'>
+          <h2>Bienvenido, {user.email}</h2>  <button onClick={handleLogout}>Cerrar Sesión</button>
+          <NoteApp />
         </div>
       ) : (
         <form onSubmit={handleLogin} className="login-form">
