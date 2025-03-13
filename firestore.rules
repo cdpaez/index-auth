@@ -1,0 +1,17 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Regla para la colección "notas"
+    match /notas/{noteId} {
+      // Solo permite crear si el usuario está autenticado
+      // y si el UID del usuario coincide con el userId de la nota
+      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
+
+      // Solo permite leer, actualizar y eliminar si el usuario está autenticado
+      // y si el UID del usuario coincide con el userId de la nota
+      allow read, update, delete: if request.auth != null && resource.data.userId == request.auth.uid;
+    }
+  }
+}

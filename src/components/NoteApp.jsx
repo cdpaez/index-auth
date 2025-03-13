@@ -6,6 +6,7 @@ function NoteApp () {
   const [notes, setNotes] = useState([]);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  
   useEffect(()=> {
     const fetchNotes = async () => {
           const notesData = await getNotes();
