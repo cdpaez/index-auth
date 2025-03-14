@@ -1,11 +1,11 @@
-import { collection, addDoc, getDocs, doc, deleteDoc, query, where } from "firebase/firestore";
+import { collection, addDoc, getDocs, doc, deleteDoc, query, where, getDoc } from "firebase/firestore";
 import { db, auth } from "./firebaseConfig";
 
 
 export const addNote = async (title, content) => {
   
   const user = auth.currentUser
-  console.log(user)
+
   if(!user) {
     console.error('No se ha encontrado un usuario autenticado')
     return
@@ -52,7 +52,7 @@ export const deleteNote = async (id) => {
   }
   try {
     const noteRef = doc(db, "notas", id);
-    const noteSnapshot = await getDocs(noteRef);
+    const noteSnapshot = await getDoc(noteRef);
 
     if (noteSnapshot.exists() && noteSnapshot.data().userId === user.uid) {
       await deleteDoc(noteRef);

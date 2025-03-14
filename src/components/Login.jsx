@@ -4,7 +4,7 @@ import { useState } from "react";
 import { auth } from "../db/firebaseConfig";
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import NoteApp from '../components/NoteApp'
-
+import ResetPasswordForm from './ResetPassword';
 
 
 const Login = () => {
@@ -31,19 +31,24 @@ const Login = () => {
 
   return (
     <div className="login-container">
+     
       {user ? (
         <div className='user-container'>
           <h2>Bienvenido, {user.email}</h2>  <button onClick={handleLogout}>Cerrar Sesión</button>
           <NoteApp />
         </div>
       ) : (
-        <form onSubmit={handleLogin} className="login-form">
-          <h2>Iniciar Sesión</h2>
-          <input type="email" placeholder="Correo" value={email} onChange={(e) => setEmail(e.target.value)} required />
-          <input type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} required />
-          <button type="submit">Ingresar</button>
-        </form>
+        <div>
+           <form onSubmit={handleLogin} className="login-form">
+            <h2>Iniciar Sesión</h2>
+            <input type="email" placeholder="Correo" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            <input type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} required />
+            <button type="submit">Ingresar</button>
+          </form>
+          <ResetPasswordForm />
+        </div>
       )}
+
     </div>
   );
 };
