@@ -2,32 +2,30 @@
 
 /* Estilo para el contenedor principal de las notas */
 .note-app {
-  width: 50%; /* Ancho del 100% del contenedor padre */
-  background-color: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow-y: auto;
-}
-.note-list {
+  width: 100%;
+  max-width: 600px;
   height: 100%;
-  overflow: auto; /* Permite el desplazamiento si el contenido excede el tamaño del contenedor */
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-height: 300px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+}
+
+.note-form {
+  width: 100%;
+  max-width: 300px;
 }
 
 /* Estilo para el título */
-.note-app h1 {
+.note-form h1 {
   font-size: 2.5rem;
   color: #4f4f4f;
   margin-bottom: 20px;
 }
 
 /* Estilo para los campos de entrada */
-.note-app input, .note-app textarea {
-  width: 100%;
+.note-form input, .note-form textarea {
+  width: 80%;
   padding: 12px;
   margin: 10px 0;
   font-size: 1rem;
@@ -38,13 +36,13 @@
 }
 
 /* Estilo de enfoque para los campos */
-.note-app input:focus, .note-app textarea:focus {
+.note-form input:focus, .note-form textarea:focus {
   border-color: #6200ea;
   outline: none;
 }
 
 /* Estilo para el botón de agregar nota */
-.note-app button {
+.note-form button {
   background-color: #6200ea;
   color: #fff;
   padding: 12px 20px;
@@ -56,19 +54,28 @@
   margin-top: 10px;
 }
 
-.note-app button:hover {
+.note-form button:hover {
   background-color: #3700b3;
 }
 
+.notes-list {
+  width: 100%;
+  max-width: 300px;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
 /* Estilo para la lista de notas */
-.note-app ul {
+.notes-list ul {
   list-style-type: none;
   margin-top: 30px;
   padding: 0;
 }
 
 /* Estilo para cada nota en la lista */
-.note-app li {
+.notes-list li {
+  
   background-color: #f9f9f9;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
@@ -78,37 +85,40 @@
   transition: transform 0.2s ease;
 }
 
-.note-app li:hover {
+.notes-list li:hover {
   transform: translateY(-5px);
 }
 
 /* Estilo para los títulos de las notas */
-.note-app li h3 {
+.notes-list li h3 {
+  
   font-size: 1.8rem;
   color: #333;
   margin-bottom: 10px;
 }
 
 /* Estilo para el contenido de las notas */
-.note-app li p {
+.notes-list li p {
+
   font-size: 1rem;
   color: #555;
   margin-bottom: 15px;
 }
 
 /* Estilo para el botón de eliminar */
-.note-app li button {
+.notes-list li button {
+  
   background-color: #f44336;
   color: white;
   border: none;
-  padding: 8px 16px;
+  padding: 10px;
+  margin: 10px;
   font-size: 0.9rem;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.note-app li button:hover {
+.notes-list li button:hover {
   background-color: #d32f2f;
 }
-

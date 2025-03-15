@@ -34,7 +34,9 @@ const Login = () => {
      
       {user ? (
         <div className='user-container'>
+          <div className='header'>
           <h2>Bienvenido, {user.email}</h2>  <button onClick={handleLogout}>Cerrar Sesión</button>
+          </div>
           <NoteApp />
         </div>
       ) : (

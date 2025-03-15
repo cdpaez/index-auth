@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './updateModal.css'
 
 const UpdateNoteModal = ({ note, onClose, onUpdate }) => {
   const [title, setTitle] = useState(note.title);

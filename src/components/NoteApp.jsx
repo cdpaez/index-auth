@@ -54,8 +54,10 @@ function NoteApp () {
             <li key={note.id}>
               <h3>{note.title}</h3>
               <p>{note.content}</p>
+             
               <button onClick={() => handleDeleteNote(note.id)}>Eliminar</button>
               <button onClick={() => openUpdateModal(note)}>Actualizar</button>
+             
             </li>
           ))
         }
