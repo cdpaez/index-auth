@@ -1,4 +1,4 @@
-import { collection, addDoc, getDocs, doc, deleteDoc, query, where, getDoc } from "firebase/firestore";
+import { collection, addDoc, getDocs, updateDoc, doc, deleteDoc, query, where, getDoc } from "firebase/firestore";
 import { db, auth } from "./firebaseConfig";
 
 
@@ -62,5 +62,28 @@ export const deleteNote = async (id) => {
     }
   } catch (error) {
     console.error("Error al eliminar nota:", error);
+  }
+};
+export const updateNote = async (id, updatedFields) => {
+  const user = auth.currentUser;
+
+  if (!user) {
+    console.error("No se ha encontrado un usuario autenticado.");
+    return;
+  }
+
+  try {
+    const noteRef = doc(db, "notas", id); // Referencia al documento específico
+    const noteSnapshot = await getDoc(noteRef); // Obtener los datos actuales de la nota
+
+    // Verificar que la nota existe y pertenece al usuario autenticado
+    if (noteSnapshot.exists() && noteSnapshot.data().userId === user.uid) {
+      await updateDoc(noteRef, updatedFields); // Actualizar los campos especificados
+      console.log("Nota actualizada:", id);
+    } else {
+      console.error("No tienes permiso para actualizar esta nota.");
+    }
+  } catch (error) {
+    console.error("Error al actualizar la nota:", error);
   }
 };

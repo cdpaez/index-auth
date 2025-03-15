@@ -1,11 +1,14 @@
 import '../components/NoteApp.css'
 import { useEffect, useState } from "react";
-import { addNote, getNotes, deleteNote } from "../db/firebaseFunctions";
+import { addNote, getNotes, deleteNote, updateNote } from "../db/firebaseFunctions";
+import UpdateNoteModal from './UpdateModal';
 
 function NoteApp () {
   const [notes, setNotes] = useState([]);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedNote, setSelectedNote] = useState(null);
   
   useEffect(()=> {
     const fetchNotes = async () => {
@@ -24,6 +27,17 @@ function NoteApp () {
       await deleteNote(id);
       setNotes(await getNotes()); // Recargar notas
     };
+    const handleUpdateNote = async (updatedFields) => {
+      if (selectedNote) {
+        await updateNote(selectedNote.id, updatedFields);
+        setIsModalOpen(false); // Cerrar la ventana modal
+        setNotes(await getNotes()); // Recargar notas
+      }
+    };
+    const openUpdateModal = (note) => {
+      setSelectedNote(note);
+      setIsModalOpen(true); // Abrir la ventana modal
+    };
   return(
     <div className="note-app">
 
@@ -41,10 +55,19 @@ function NoteApp () {
               <h3>{note.title}</h3>
               <p>{note.content}</p>
               <button onClick={() => handleDeleteNote(note.id)}>Eliminar</button>
+              <button onClick={() => openUpdateModal(note)}>Actualizar</button>
             </li>
           ))
         }
       </ul>
+
+      {isModalOpen && (
+        <UpdateNoteModal
+          note={selectedNote}
+          onClose={() => setIsModalOpen(false)}
+          onUpdate={handleUpdateNote}
+        />
+      )}
 
     </div>
   )
