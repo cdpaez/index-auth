@@ -94,3 +94,49 @@
   margin: 0 auto;
   text-align: center
 }
+/* Estilos responsivos para dispositivos móviles */
+@media (max-width: 768px) {
+  /* Ajustar el formulario de inicio de sesión */
+  .login-form {
+    width: 90%; /* Ocupa casi todo el ancho de la pantalla */
+    margin: 20px auto; /* Centrar el formulario */
+    padding: 15px; /* Reducir el padding */
+    gap: 8px; /* Reducir el espacio entre los elementos */
+  }
+
+  .login-form h2 {
+    font-size: 1.5rem; /* Reducir el tamaño del título */
+  }
+
+  .login-form input {
+    font-size: 14px; /* Reducir el tamaño del texto */
+    padding: 8px; /* Reducir el padding */
+  }
+
+  .login-form button {
+    font-size: 14px; /* Reducir el tamaño del texto */
+    padding: 8px; /* Reducir el padding */
+  }
+
+  /* Ajustar el contenedor del usuario */
+  .user-container {
+    max-width: 90%; /* Reducir el ancho máximo */
+    padding: 15px; /* Reducir el padding */
+  }
+
+  /* Ajustar el encabezado */
+  .header {
+    flex-direction: column; /* Cambiar a diseño vertical */
+    gap: 10px; /* Espaciado entre los elementos */
+    align-items: center; /* Centrar los elementos */
+  }
+
+  .header button {
+    font-size: 14px; /* Reducir el tamaño del texto */
+    padding: 8px; /* Reducir el padding */
+  }
+
+  .header button span {
+    padding: 10px 16px; /* Reducir el padding interno */
+  }
+}

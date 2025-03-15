@@ -122,3 +122,51 @@
 .notes-list li button:hover {
   background-color: #d32f2f;
 }
+
+/*estilos con media para celulares*/
+/* Estilos responsivos para dispositivos móviles */
+@media (max-width: 768px) {
+  /* Ajustar el contenedor principal */
+  .note-app {
+    display: flex;
+    flex-direction: column; /* Cambiar a diseño vertical */
+    align-items: center;
+    max-height: none; /* Permitir que crezca según el contenido */
+  }
+
+  /* Ajustar el formulario */
+  .note-form {
+    width: 90%; /* Ocupa casi todo el ancho de la pantalla */
+    max-width: none; /* Eliminar el límite de ancho */
+    margin-bottom: 20px; /* Espaciado entre el formulario y la lista */
+  }
+
+  .note-form input, .note-form textarea {
+    width: 100%; /* Ocupa todo el ancho del formulario */
+  }
+
+  /* Ajustar la lista de notas */
+  .notes-list {
+    width: 90%; /* Ocupa casi todo el ancho de la pantalla */
+    max-width: none; /* Eliminar el límite de ancho */
+    overflow: visible; /* Permitir que crezca según el contenido */
+  }
+
+  .notes-list li {
+    margin-bottom: 15px; /* Reducir el margen entre las notas */
+    padding: 10px; /* Reducir el padding */
+  }
+
+  .notes-list li h3 {
+    font-size: 1.5rem; /* Reducir el tamaño del título */
+  }
+
+  .notes-list li p {
+    font-size: 0.9rem; /* Reducir el tamaño del contenido */
+  }
+
+  .notes-list li button {
+    padding: 8px; /* Reducir el padding de los botones */
+    font-size: 0.8rem; /* Reducir el tamaño del texto en los botones */
+  }
+}
