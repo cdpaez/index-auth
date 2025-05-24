@@ -7,16 +7,16 @@ import './App.css'
 
 const App = () => {
   return (
-   
+
     <Router>
       <nav>
-        <Link to="/">Inicio</Link> | 
-        <Link to="/register">Registro</Link> | 
+        <Link to="/">Inicio</Link> |
+        <Link to="/register">Registro</Link> |
         <Link to="/login">Login</Link>
       </nav>
-     
+
       <Routes>
-        <Route path="/" element={<Index/>} />
+        <Route path="/" element={<Index />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/login" element={<Login />} />
       </Routes>
