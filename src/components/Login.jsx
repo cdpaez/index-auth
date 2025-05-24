@@ -4,6 +4,7 @@ import { useState } from "react";
 import { auth } from "../db/firebaseConfig";
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import NoteApp from '../components/NoteApp'
+import Chat from './Chat'
 import ResetPasswordForm from './ResetPassword';
 
 
@@ -37,7 +38,8 @@ const Login = () => {
           <div className='header'>
             <h2>Bienvenido, {user.email}</h2>  <button onClick={handleLogout}>Cerrar Sesión</button>
           </div>
-          {/* <NoteApp /> */}
+          <NoteApp />
+          <Chat />
         </div>
       ) : (
         <div>
