@@ -17,7 +17,7 @@ const Login = () => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       setUser(userCredential.user);
-     console.log("Sesión iniciada");
+      console.log("Sesión iniciada");
     } catch (error) {
       alert("Error: " + error.message);
     }
@@ -31,17 +31,17 @@ const Login = () => {
 
   return (
     <div className="login-container">
-     
+
       {user ? (
         <div className='user-container'>
           <div className='header'>
-          <h2>Bienvenido, {user.email}</h2>  <button onClick={handleLogout}>Cerrar Sesión</button>
+            <h2>Bienvenido, {user.email}</h2>  <button onClick={handleLogout}>Cerrar Sesión</button>
           </div>
-          <NoteApp />
+          {/* <NoteApp /> */}
         </div>
       ) : (
         <div>
-           <form onSubmit={handleLogin} className="login-form">
+          <form onSubmit={handleLogin} className="login-form">
             <h2>Iniciar Sesión</h2>
             <input type="email" placeholder="Correo" value={email} onChange={(e) => setEmail(e.target.value)} required />
             <input type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} required />
