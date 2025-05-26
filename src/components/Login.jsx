@@ -38,8 +38,10 @@ const Login = () => {
           <div className='header'>
             <h2>Bienvenido, {user.email}</h2>  <button onClick={handleLogout}>Cerrar Sesión</button>
           </div>
-          <NoteApp />
-          <Chat />
+          <div className="panel__container">
+            <NoteApp />
+            <Chat />
+          </div>
         </div>
       ) : (
         <div>

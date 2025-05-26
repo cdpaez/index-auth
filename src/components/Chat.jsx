@@ -11,6 +11,7 @@ import {
 import './chat.css'
 
 const Chat = () => {
+  // declaracion de variables 
   const [mensajes, setMensajes] = useState([]);
   const [nuevoMensaje, setNuevoMensaje] = useState('');
   const scrollRef = useRef();
@@ -47,6 +48,7 @@ const Chat = () => {
 
   return (
     <div className="chat-container">
+      <h1>CHAT GENERAL</h1>
       <div className="mensajes">
         {mensajes.map(msg => (
           <div

@@ -3,10 +3,10 @@ import { db, auth } from "./firebaseConfig";
 
 
 export const addNote = async (title, content) => {
-  
+
   const user = auth.currentUser
 
-  if(!user) {
+  if (!user) {
     console.error('No se ha encontrado un usuario autenticado')
     return
   }
@@ -17,7 +17,7 @@ export const addNote = async (title, content) => {
       createdAt: new Date(),
       userId: user.uid
     });
-   
+
     return docRef.id;
   } catch (error) {
     console.error("Error al agregar nota:", error);
@@ -25,11 +25,11 @@ export const addNote = async (title, content) => {
 };
 
 export const getNotes = async () => {
-  
+
   const user = auth.currentUser
-  if(!user){
+  if (!user) {
     console.error('No se ha encontrado un usuario autenticado')
-    return []  
+    return []
   }
   try {
     // Filtramos las notas para que solo el usuario autenticado vea sus propias notas
@@ -43,7 +43,7 @@ export const getNotes = async () => {
 };
 
 export const deleteNote = async (id) => {
-  
+
   const user = auth.currentUser;
 
   if (!user) {
