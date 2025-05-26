@@ -6,7 +6,11 @@ import {
   query,
   orderBy,
   serverTimestamp,
-  onSnapshot
+  onSnapshot,
+  doc,
+  getDoc,
+  updateDoc,
+  increment
 } from 'firebase/firestore';
 import './chat.css'
 
@@ -32,19 +36,47 @@ const Chat = () => {
 
   const enviarMensaje = async (e) => {
     e.preventDefault();
-    const { uid, displayName } = auth.currentUser;
+
+    const user = auth.currentUser;
+    if (!user) return;
+
+    const { uid, displayName } = user;
 
     if (nuevoMensaje.trim() === '') return;
 
-    await addDoc(collection(db, 'chats'), {
-      text: nuevoMensaje,
-      createdAt: serverTimestamp(),
-      uid,
-      displayName
-    });
+    try {
+      const userRef = doc(db, 'usuarios', uid);
+      const userSnap = await getDoc(userRef);
 
-    setNuevoMensaje('');
+      if (!userSnap.exists()) {
+        alert("⚠️ No se encontró el documento del usuario.");
+        return;
+      }
+
+      const { totalMensajes = 0 } = userSnap.data();
+
+      if (totalMensajes >= 30) {
+        alert("🚫 Has alcanzado el límite de 30 mensajes permitidos.");
+        return;
+      }
+
+      await addDoc(collection(db, 'chats'), {
+        text: nuevoMensaje,
+        createdAt: serverTimestamp(),
+        uid,
+        displayName
+      });
+
+      await updateDoc(userRef, {
+        totalMensajes: increment(1)
+      });
+
+      setNuevoMensaje('');
+    } catch (error) {
+      console.error("❌ Error al enviar el mensaje:", error);
+    }
   };
+
 
   return (
     <div className="chat-container">

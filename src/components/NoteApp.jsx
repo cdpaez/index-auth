@@ -1,4 +1,4 @@
-import '../components/NoteApp.css'
+import './NoteApp.css'
 import { useEffect, useState } from "react";
 import { addNote, getNotes, deleteNote, updateNote } from "../db/firebaseFunctions";
 import UpdateNoteModal from './UpdateModal';
