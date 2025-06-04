@@ -6,6 +6,8 @@ import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import NoteApp from '../components/NoteApp'
 import Chat from './Chat'
 import ResetPasswordForm from './ResetPassword';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 
 
 const Login = () => {
@@ -36,7 +38,10 @@ const Login = () => {
       {user ? (
         <div className='user-container'>
           <div className='header'>
-            <h2>Bienvenido, {user.email}</h2>  <button onClick={handleLogout}>Cerrar Sesión</button>
+            <h2>{user.email}</h2>
+            <button onClick={handleLogout}>
+              <FontAwesomeIcon icon={faArrowRightFromBracket} bounce style={{ color: "#FFFFFF" }} />
+            </button>
           </div>
           <div className="panel__container">
             <NoteApp />
@@ -44,7 +49,7 @@ const Login = () => {
           </div>
         </div>
       ) : (
-        <div>
+        <div className='login-subcontainer'>
           <form onSubmit={handleLogin} className="login-form">
             <h2>Iniciar Sesión</h2>
             <input type="email" placeholder="Correo" value={email} onChange={(e) => setEmail(e.target.value)} required />

@@ -8,6 +8,10 @@
   max-height: 80vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  background-color: #97b3e3;
+
+  border: 1px solid;
+  border-radius: 8px;
 }
 
 .note-form {
@@ -46,8 +50,8 @@
 
 /* Estilo para el botón de agregar nota */
 .note-form button {
-  background-color: #6200ea;
-  color: #fff;
+  background-color: #b3e397;
+  color: #4f4f4f;
   padding: 12px 20px;
   font-size: 1rem;
   border: none;
@@ -58,7 +62,7 @@
 }
 
 .note-form button:hover {
-  background-color: #3700b3;
+  background-color: #e397b3;
 }
 
 .notes-list {
@@ -78,7 +82,7 @@
 
 /* Estilo para cada nota en la lista */
 .notes-list li {
-  
+  list-style: none;
   background-color: #f9f9f9;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
@@ -134,7 +138,6 @@
     display: flex;
     flex-direction: column; /* Cambiar a diseño vertical */
     align-items: center;
-    max-height: none; /* Permitir que crezca según el contenido */
   }
 
   /* Ajustar el formulario */
@@ -152,7 +155,7 @@
   .notes-list {
     width: 90%; /* Ocupa casi todo el ancho de la pantalla */
     max-width: none; /* Eliminar el límite de ancho */
-    overflow: visible; /* Permitir que crezca según el contenido */
+    overflow: auto; /* Permitir que crezca según el contenido */
   }
 
   .notes-list li {

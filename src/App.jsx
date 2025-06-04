@@ -16,10 +16,13 @@ const App = () => {
       </nav>
 
       <Routes>
+
         <Route path="/" element={<Index />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+
       </Routes>
+      
     </Router>
   );
 };

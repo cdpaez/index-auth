@@ -1,7 +1,32 @@
+.login-container {
+  min-height: 93.5dvh;
+  background-image: url(../assets/img/universo.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+ 
+}
+
+.login-subcontainer {
+  height: 93.5vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 3rem;
+}
 
 .login-form {
   max-width: 400px;
-  margin: 50px auto;
+  margin: 0;
   padding: 20px;
   background: white;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -11,9 +36,11 @@
   flex-direction: column;
   gap: 10px;
 }
+
 .login-form h2 {
   color: #2a9d8f;
 }
+
 .user-container {
   width: 100%;
   height: 100dvh;
@@ -22,6 +49,7 @@
   flex-direction: column;
   align-items: center;
 }
+
 .header {
   display: flex;
   flex-direction: row;
@@ -30,17 +58,20 @@
   justify-content: left;
   gap: 1.5rem;
 }
-.header button{
 
-  border:0;
-  background-image: linear-gradient(
-      150deg,
+.header h2 {
+  color: #ccc;
+}
+
+.header button {
+
+  border: 0;
+  background-image: linear-gradient(150deg,
       #9500,
       #09F,
-      #00DDFF
-  );
+      #00DDFF);
   border-radius: 8px;
-  color:#fff;
+  color: #fff;
   display: flex;
   font-size: 18px;
   padding: 4px;
@@ -49,7 +80,7 @@
 
 }
 
-.header button span{
+.header button span {
   background-color: #111;
   padding: 16px 24px;
   border-radius: 6px;
@@ -61,14 +92,16 @@
 }
 
 .header button:active {
-  transform: scale(0,9)
+  transform: scale(0, 9)
 }
+
 .panel__container {
   display: flex;
   flex-direction: row;
   width: 100%;
   margin: 2rem;
 }
+
 .login-form input {
   padding: 10px;
   border: 1px solid #ccc;
@@ -98,51 +131,83 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
   margin: 0 auto;
-  text-align: center
+  text-align: center;
 }
+
 /* Estilos responsivos para dispositivos móviles */
 @media (max-width: 768px) {
+
   /* Ajustar el formulario de inicio de sesión */
   .login-form {
-    width: 90%; /* Ocupa casi todo el ancho de la pantalla */
-    margin: 20px auto; /* Centrar el formulario */
-    padding: 15px; /* Reducir el padding */
-    gap: 8px; /* Reducir el espacio entre los elementos */
+    width: 90%;
+    /* Ocupa casi todo el ancho de la pantalla */
+    margin: 20px auto;
+    /* Centrar el formulario */
+    padding: 15px;
+    /* Reducir el padding */
+    gap: 8px;
+    /* Reducir el espacio entre los elementos */
   }
 
   .login-form h2 {
-    font-size: 1.5rem; /* Reducir el tamaño del título */
+    font-size: 1.5rem;
+    /* Reducir el tamaño del título */
   }
 
   .login-form input {
-    font-size: 14px; /* Reducir el tamaño del texto */
-    padding: 8px; /* Reducir el padding */
+    font-size: 14px;
+    /* Reducir el tamaño del texto */
+    padding: 8px;
+    /* Reducir el padding */
   }
 
   .login-form button {
-    font-size: 14px; /* Reducir el tamaño del texto */
-    padding: 8px; /* Reducir el padding */
+    font-size: 14px;
+    /* Reducir el tamaño del texto */
+    padding: 8px;
+    /* Reducir el padding */
   }
 
   /* Ajustar el contenedor del usuario */
   .user-container {
-    max-width: 90%; /* Reducir el ancho máximo */
-    padding: 15px; /* Reducir el padding */
+    max-width: 100%;
+    /* Reducir el ancho máximo */
+    padding: 15px;
+    /* Reducir el padding */
   }
 
   /* Ajustar el encabezado */
   .header {
-    flex-direction: column; /* Cambiar a diseño vertical */
-    gap: 10px; /* Espaciado entre los elementos */
-    align-items: center; /* Centrar los elementos */
+    flex-direction: row;
+    /* Cambiar a diseño vertical */
+    gap: 10px;
+    /* Espaciado entre los elementos */
+    align-items: center;
+    /* Centrar los elementos */
+    justify-content: center;
+  }
+
+  .header h2 {
+    font-size: clamp(1rem, 1vw, 2rem);
+    color: #ccc;
   }
 
   .header button {
-    font-size: 14px; /* Reducir el tamaño del texto */
-    padding: 8px; /* Reducir el padding */
+    font-size: 14px;
+    /* Reducir el tamaño del texto */
+    padding: 8px;
+    /* Reducir el padding */
   }
 
   .header button span {
-    padding: 10px 16px; /* Reducir el padding interno */
+    padding: 10px 16px;
+    /* Reducir el padding interno */
+  }
+
+  .panel__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4rem;
   }
 }
