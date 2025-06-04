@@ -1,7 +1,7 @@
 import './resetPassword.css';
 
 import React, { useState } from "react";
-import { resetPassword } from "../db/firebaseResetPassword";
+import { resetPassword } from "../../services/firebaseResetPassword";
 
 
 const ResetPasswordForm = () => {

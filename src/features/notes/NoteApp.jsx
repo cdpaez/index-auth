@@ -1,7 +1,7 @@
 import './NoteApp.css'
 import { useEffect, useState } from "react";
-import { addNote, getNotes, deleteNote, updateNote } from "../db/firebaseFunctions";
-import UpdateNoteModal from './UpdateModal';
+import { addNote, getNotes, deleteNote, updateNote } from "../../services/firebaseFunctions";
+import UpdateNoteModal from '../../components/UpdateModal';
 
 function NoteApp() {
   const [notes, setNotes] = useState([]);

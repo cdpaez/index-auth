@@ -1,10 +1,10 @@
-import '../components/Login.css'
+import './login.css'
 
 import { useState } from "react";
-import { auth } from "../db/firebaseConfig";
+import { auth } from "../../services/firebaseConfig";
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
-import NoteApp from '../components/NoteApp'
-import Chat from './Chat'
+import NoteApp from '../notes/NoteApp'
+import Chat from '../chat/Chat'
 import ResetPasswordForm from './ResetPassword';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';

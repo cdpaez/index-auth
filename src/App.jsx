@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Register from "./components/Register";
-import Login from "./components/Login";
+import Register from "./features/auth/Register";
+import Login from "./features/auth/Login";
 import Index from "./components/Index";
 
 import './App.css'
@@ -22,7 +22,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
 
       </Routes>
-      
+
     </Router>
   );
 };
