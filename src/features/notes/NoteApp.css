@@ -1,22 +1,21 @@
-/* src/Components/NoteApp.css */
-
 /* Estilo para el contenedor principal de las notas */
 .note-app {
   width: 100%;
-  max-width: 600px;
+
   height: 100%;
-  max-height: 80vh;
+
   display: grid;
   grid-template-columns: 1fr 1fr;
-  background-color: #97b3e3;
+  background-color: #e28743;
 
   border: 1px solid;
   border-radius: 8px;
 }
 
+
 .note-form {
+  background-color: #298fb9;
   width: 100%;
-  max-width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,7 +30,8 @@
 }
 
 /* Estilo para los campos de entrada */
-.note-form input, .note-form textarea {
+.note-form input,
+.note-form textarea {
   width: 80%;
   padding: 12px;
   margin: 10px 0;
@@ -43,7 +43,8 @@
 }
 
 /* Estilo de enfoque para los campos */
-.note-form input:focus, .note-form textarea:focus {
+.note-form input:focus,
+.note-form textarea:focus {
   border-color: #6200ea;
   outline: none;
 }
@@ -66,18 +67,21 @@
 }
 
 .notes-list {
+  background-color: #e28743;
   width: 100%;
-  max-width: 300px;
-  overflow: scroll;
+  height: 100vh;
+  max-height: 300px;
   display: flex;
   flex-direction: column;
+  padding: 1rem;
+  overflow-y: auto;
+  scrollbar-width: none;
+  margin: auto 0px;
 }
 
-/* Estilo para la lista de notas */
-.notes-list ul {
-  list-style-type: none;
-  margin-top: 30px;
-  padding: 0;
+.note-list::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Brave, Opera, Edge basado en Chromium, Safari */
 }
 
 /* Estilo para cada nota en la lista */
@@ -98,7 +102,7 @@
 
 /* Estilo para los títulos de las notas */
 .notes-list li h3 {
-  
+
   font-size: 1.8rem;
   color: #333;
   margin-bottom: 10px;
@@ -114,7 +118,7 @@
 
 /* Estilo para el botón de eliminar */
 .notes-list li button {
-  
+
   background-color: #f44336;
   color: white;
   border: none;
@@ -133,46 +137,62 @@
 /*estilos con media para celulares*/
 /* Estilos responsivos para dispositivos móviles */
 @media (max-width: 768px) {
+
   /* Ajustar el contenedor principal */
   .note-app {
     display: flex;
-    flex-direction: column; /* Cambiar a diseño vertical */
+    flex-direction: column;
+    /* Cambiar a diseño vertical */
     align-items: center;
   }
 
   /* Ajustar el formulario */
   .note-form {
-    width: 90%; /* Ocupa casi todo el ancho de la pantalla */
-    max-width: none; /* Eliminar el límite de ancho */
-    margin-bottom: 20px; /* Espaciado entre el formulario y la lista */
+    width: 90%;
+    /* Ocupa casi todo el ancho de la pantalla */
+    max-width: none;
+    /* Eliminar el límite de ancho */
+    margin-bottom: 20px;
+    /* Espaciado entre el formulario y la lista */
   }
 
-  .note-form input, .note-form textarea {
-    width: 100%; /* Ocupa todo el ancho del formulario */
+  .note-form input,
+  .note-form textarea {
+    width: 100%;
+    /* Ocupa todo el ancho del formulario */
   }
 
   /* Ajustar la lista de notas */
   .notes-list {
-    width: 90%; /* Ocupa casi todo el ancho de la pantalla */
-    max-width: none; /* Eliminar el límite de ancho */
-    overflow: auto; /* Permitir que crezca según el contenido */
+    width: 90%;
+    /* Ocupa casi todo el ancho de la pantalla */
+    max-width: none;
+    /* Eliminar el límite de ancho */
+    overflow: auto;
+    /* Permitir que crezca según el contenido */
   }
 
   .notes-list li {
-    margin-bottom: 15px; /* Reducir el margen entre las notas */
-    padding: 10px; /* Reducir el padding */
+    margin-bottom: 15px;
+    /* Reducir el margen entre las notas */
+    padding: 10px;
+    /* Reducir el padding */
   }
 
   .notes-list li h3 {
-    font-size: 1.5rem; /* Reducir el tamaño del título */
+    font-size: 1.5rem;
+    /* Reducir el tamaño del título */
   }
 
   .notes-list li p {
-    font-size: 0.9rem; /* Reducir el tamaño del contenido */
+    font-size: 0.9rem;
+    /* Reducir el tamaño del contenido */
   }
 
   .notes-list li button {
-    padding: 8px; /* Reducir el padding de los botones */
-    font-size: 0.8rem; /* Reducir el tamaño del texto en los botones */
+    padding: 8px;
+    /* Reducir el padding de los botones */
+    font-size: 0.8rem;
+    /* Reducir el tamaño del texto en los botones */
   }
 }

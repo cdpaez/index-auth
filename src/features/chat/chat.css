@@ -1,14 +1,16 @@
 .chat-container {
   display: flex;
   flex-direction: column;
-  height: 80vh;
+  height: 35vh;
   width: 100%;
-  max-width: 600px;
-  margin: auto;
   border: 1px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
-  background-color: #e3a197;
+  background-color:#1b0b00;
+}
+.chat-container h1 {
+  font-family: monospace;
+  color: #ccc;
 }
 
 .mensajes {

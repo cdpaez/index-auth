@@ -1,121 +1,58 @@
 .login-container {
-  min-height: 93.5dvh;
-  background-image: url(../assets/img/universo.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-
- 
+  width: 100%;
+  height: 100%;
 }
 
 .login-subcontainer {
-  height: 93.5vh;
-
+  margin: 50px auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-
   gap: 3rem;
+  width: 100%;
+  height: 100%;
 }
 
 .login-form {
   max-width: 400px;
-  margin: 0;
   padding: 20px;
   background: white;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   text-align: center;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 100%;
+  height: 100%;
 }
 
 .login-form h2 {
   color: #2a9d8f;
 }
 
-.user-container {
+.login-form input,
+.login-form button {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
   width: 100%;
-  height: 100dvh;
-  color: #21867a;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.header {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  margin: 1rem;
-  justify-content: left;
-  gap: 1.5rem;
-}
-
-.header h2 {
-  color: #ccc;
-}
-
-.header button {
-
-  border: 0;
-  background-image: linear-gradient(150deg,
-      #9500,
-      #09F,
-      #00DDFF);
-  border-radius: 8px;
-  color: #fff;
-  display: flex;
-  font-size: 18px;
-  padding: 4px;
-  cursor: pointer;
-  transition: .3s;
-
-}
-
-.header button span {
-  background-color: #111;
-  padding: 16px 24px;
-  border-radius: 6px;
-  transition: .3s;
-}
-
-.header button:hover span {
-  background: none;
-}
-
-.header button:active {
-  transform: scale(0, 9)
-}
-
-.panel__container {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  margin: 2rem;
 }
 
 .login-form input {
-  padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
 }
 
 .login-form button {
-  padding: 10px;
   background-color: #2a9d8f;
   color: white;
   border: none;
-  border-radius: 5px;
-  font-size: 16px;
   cursor: pointer;
   transition: background 0.3s;
 }
@@ -124,90 +61,152 @@
   background-color: #21867a;
 }
 
-.user-container {
+.header {
+  display: flex;
+  width: 100%;
+  margin: 1rem;
+  justify-content: left;
+  gap: 1.5rem;
+  align-items: center;
+  height: 100%;
+}
+
+.header h2 {
+  color: #ccc;
+}
+
+.header button {
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  color: #fff;
+  display: flex;
+  font-size: 18px;
+  padding: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+  height: 100%;
+}
+
+.header button span {
+  background-color: #111;
+  padding: 16px 24px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.header button:hover span {
+  background-color: transparent;
+}
+
+.header button:active {
+  transform: scale(0.9);
+}
+
+.panel__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 3rem;
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+}
+
+.left-panel {
   background-color: #fff;
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+}
+
+.right-panel {
+  
+  display: grid;
+  grid-template-rows: 40% 60%;
+  gap: 1rem;
+  
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.chat-panel,
+.calendar-panel {
+  padding: 1rem;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+}
+
+.user-container {
+  background: url(../../assets/img/dunas.jpg) center/cover no-repeat;
+  width: 100%;
+  height: 100%;
+  max-height: 100vh;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  margin: 0 auto;
   text-align: center;
+  margin: 0 auto;
 }
 
 /* Estilos responsivos para dispositivos móviles */
 @media (max-width: 768px) {
-
-  /* Ajustar el formulario de inicio de sesión */
   .login-form {
     width: 90%;
-    /* Ocupa casi todo el ancho de la pantalla */
     margin: 20px auto;
-    /* Centrar el formulario */
     padding: 15px;
-    /* Reducir el padding */
     gap: 8px;
-    /* Reducir el espacio entre los elementos */
+    height: 100%;
   }
 
   .login-form h2 {
     font-size: 1.5rem;
-    /* Reducir el tamaño del título */
   }
 
-  .login-form input {
-    font-size: 14px;
-    /* Reducir el tamaño del texto */
-    padding: 8px;
-    /* Reducir el padding */
-  }
-
+  .login-form input,
   .login-form button {
     font-size: 14px;
-    /* Reducir el tamaño del texto */
     padding: 8px;
-    /* Reducir el padding */
+    width: 100%;
   }
 
-  /* Ajustar el contenedor del usuario */
-  .user-container {
-    max-width: 100%;
-    /* Reducir el ancho máximo */
-    padding: 15px;
-    /* Reducir el padding */
-  }
-
-  /* Ajustar el encabezado */
   .header {
     flex-direction: row;
-    /* Cambiar a diseño vertical */
     gap: 10px;
-    /* Espaciado entre los elementos */
-    align-items: center;
-    /* Centrar los elementos */
     justify-content: center;
+    height: 100%;
   }
 
   .header h2 {
     font-size: clamp(1rem, 1vw, 2rem);
-    color: #ccc;
   }
 
   .header button {
     font-size: 14px;
-    /* Reducir el tamaño del texto */
     padding: 8px;
-    /* Reducir el padding */
+    height: 100%;
   }
 
   .header button span {
     padding: 10px 16px;
-    /* Reducir el padding interno */
   }
 
   .panel__container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     gap: 4rem;
+    width: 100%;
+    height: 100%;
   }
 }

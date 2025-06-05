@@ -1,0 +1,46 @@
+/* Estilos base de react-calendar */
+.react-calendar {
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  font-family: sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.react-calendar__tile--now {
+  background: #e6f0ff;
+  border-radius: 8px;
+}
+
+.react-calendar__tile--active {
+  background: #007bff;
+  color: white;
+  border-radius: 8px;
+}
+
+/* Contenedor responsive */
+.calendar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.selected-date {
+  margin-top: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Responsive en móviles */
+@media (max-width: 600px) {
+  .react-calendar {
+    font-size: 14px;
+    padding: 0.5rem;
+  }
+}
